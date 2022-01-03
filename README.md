@@ -6,7 +6,7 @@ Currently Ubuntu and Arch Linux are supported. The script will detect your distr
 
 For now it is assumed that if you have `apt`, you are using Ubuntu, and if you have `pacman`, you are using Arch.
 
-Arch might be broken, I have only tested it on apt.
+Warning: Might be broken.
 
 # How to use
 1. Download the file: `https://raw.githubusercontent.com/DESKTOPGOOOSE/mkcvm/main/mkcvm.sh`

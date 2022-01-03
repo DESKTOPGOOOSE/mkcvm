@@ -165,4 +165,4 @@ chmod +x ~/cvm-start.sh
 
 echo '[*] Done. Start CVM server with ~/cvm-start.sh'
 echo '[i] Server and webapp build logs are available at ~/cvm/build-log'
-echo '[i] Getting a page error? That is because 1.2.11 does not have a webapp. You will need to host the webapp and admin panel on another webserver such as nginx.
+echo '[i] If you get a page error do not freak out that is because 1.2.11 does not have a webapp. You will need to host the webapp and admin panel on another webserver such as nginx.

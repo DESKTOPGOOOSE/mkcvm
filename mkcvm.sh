@@ -89,7 +89,7 @@ cd cvm
 mkdir build-log
 echo [*] Installing build essentials
 case "$packageman" in
-    apt) sudo apt install -y make libboost-all-dev libsqlite3-dev libvncserver-dev libpng-dev libturbojpeg-dev libcairo-dev git npm;;
+    apt) sudo apt install -y make build-essential clang clang++ libboost-all-dev libsqlite3-dev libvncserver-dev libpng-dev libturbojpeg-dev libcairo-dev git npm;;
     pacman) sudo pacman -S git npm base-devel --needed;;
     *) echo '[!!] How did we even get here??'; exit 1;;
 esac

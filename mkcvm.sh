@@ -1,16 +1,7 @@
 #!/bin/sh
 
-install_odb_aur() {
-    echo [*] Downloading ODB from AUR
-    git clone https://aur.archlinux.org/odb.git
-    cd odb
-    makepkg -sic
-}
-
 build_serv() {
-    [ "$packageman" = pacman ] && install_odb_aur
     cd serv
-    git reset --hard 1.2.10
     chmod +x ./scripts/grab_deps_linux.sh
     ./scripts/grab_deps_linux.sh
     make -j$(nproc)
@@ -26,7 +17,7 @@ build_webapp() {
     cd ..
 }
 
-echo '[***]   mkcvm by totallyNotAUser   [***]'
+echo '[***]   mkcvm-1.2.11 - A fork of mkcvm by Longhorn5048   [***]'
 echo '[***] Make a CVM mirror, and fast! [***]'
 echo
 
@@ -98,13 +89,13 @@ cd cvm
 mkdir build-log
 echo [*] Installing build essentials
 case "$packageman" in
-    apt) sudo apt install -y build-essential git npm;;
+    apt) sudo apt install -y make libboost-all-dev libsqlite3-dev libvncserver-dev libpng-dev libturbojpeg-dev libcairo-dev git npm;;
     pacman) sudo pacman -S git npm base-devel --needed;;
     *) echo '[!!] How did we even get here??'; exit 1;;
 esac
 
 echo [*] Cloning repos
-git clone http://github.com/computernewb/collab-vm-server
+git clone http://github.com/computernewb/collab-vm-server --branch release/1.2.11 --recursive
 mv ./collab-vm-server serv
 git clone http://github.com/computernewb/collab-vm-web-app
 mv ./collab-vm-web-app webapp
@@ -174,3 +165,4 @@ chmod +x ~/cvm-start.sh
 
 echo '[*] Done. Start CVM server with ~/cvm-start.sh'
 echo '[i] Server and webapp build logs are available at ~/cvm/build-log'
+echo '[i] Getting a page error? That is because 1.2.11 does not have a webapp. You will need to host the webapp and admin panel on another webserver such as nginx.
